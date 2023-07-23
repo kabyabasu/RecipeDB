@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My DataFrame</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            white-space: nowrap; /* Prevent content from wrapping initially */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis (...) for truncated content */
+        }
+
+        .expand-button {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+
+
+    <script>
+        function toggleExpand(cellId) {
+            var cell = document.getElementById(cellId);
+            if (cell.style.whiteSpace === 'nowrap') {
+                cell.style.whiteSpace = 'pre-wrap';
+                cell.nextSibling.style.display = 'none'; // Hide the "Expand" link
+            } else {
+                cell.style.whiteSpace = 'nowrap';
+                cell.nextSibling.style.display = 'inline'; // Show the "Expand" link
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+    <h1>My DataFrame</h1>
+    <!-- Display the DataFrame in a table -->
+    {{ table|safe }}
+</body>
+</html>
